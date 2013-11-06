@@ -232,6 +232,13 @@ InformationContentStatusEvent: !Extends_InformationContentEvent
   # New status of the information
   status: !InformationStatus
   
+# ------------------------------------------------------------------------------------
+# Upload Event
+# ------------------------------------------------------------------------------------
+
+UploadEvent: !Extends_InformationContentModifiedEvent
+  filepath: ""
+  filetype: ""
 
 # ------------------------------------------------------------------------------------
 #                                  Infrastructure Level Events
