@@ -26,6 +26,14 @@ config:
       web_server:
         host: 0.0.0.0
         port: 10999
+    objects:
+      validate:
+        setattr: False
+  interceptor:
+    interceptors:
+      validate:
+        config:
+          enabled: False
   endpoint:
     receive:
       timeout: 60
@@ -40,7 +48,7 @@ config:
     oms:
       host: sg.a3.oceanobservatories.org
   system:
-    web_ui_url: http://r3alpha.oceanobservatories.org/
+    web_ui_url: http://r3-alpha.oceanobservatories.org/
     smtp: true
     load_policy: true
   processdispatcher:
