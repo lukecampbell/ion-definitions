@@ -14,3 +14,13 @@ CREATE INDEX spans_vertical_idx on "%(ds)s_spans" (vertical_range);
 CREATE INDEX spans_time_space_idx on "%(ds)s_spans" (time_range, spatial_geometry);
 
 GRANT SELECT, INSERT, UPDATE, DELETE on "%(ds)s_spans" TO ion;
+
+CREATE TABLE "%(ds)s_span_data" (id text PRIMARY KEY, coverage_id text, ingest_time double precision, data json);
+GRANT SELECT, INSERT, UPDATE, DELETE on "%(ds)s_span_data" TO ion;
+
+CREATE TABLE "%(ds)s_span_stats" (span_address text PRIMARY KEY, coverage_id text, hash text, spatial_geometry geometry, vertical_range numrange, time_range tsrange);
+GRANT SELECT, INSERT, UPDATE, DELETE on "%(ds)s_span_stats" TO ion;
+
+CREATE TABLE "%(ds)s_bin_stats" (bin_name text PRIMARY KEY, coverage_id text, span_ids text[], spatial_geometry geometry, vertical_range numrange, time_range tsrange);
+GRANT SELECT, INSERT, UPDATE, DELETE on "%(ds)s_bin_stats" TO ion;
+
